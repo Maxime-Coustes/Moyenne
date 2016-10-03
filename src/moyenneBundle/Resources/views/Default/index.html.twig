@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Moyenne</h1>
+<ul>
+
+
+{% set array = {
+
+
+0:{'Age':42, 'Nom':'Emmanuel'},
+1:{'Age':51, 'Nom':'Thierry'},
+2:{'Age':45, 'Nom':'Pascal'},
+3:{'Age':48, 'Nom':'Eric'},
+4:{'Age':19, 'Nom':'Nicolas'}
+
+} %}
+    {% set SumAge = 0 %}
+
+
+
+    {% for student in array %}
+        Nom : {{ student.Nom }}, Age : {{ student.Age}} <br/>
+        {% set SumAge = SumAge + student.Age%}
+    {% endfor %}
+</ul>
+    {# travailler sur l'automatisme du tableau  pour que ça fonctionne quelque soient ses valeurs#}
+
+    {% set moyenne = SumAge/ (array|length) %}
+    {% block echo moyenne %}
+
+
+
+
+
+{% endblock %}
